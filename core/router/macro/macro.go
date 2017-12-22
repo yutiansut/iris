@@ -245,7 +245,7 @@ type Map struct {
 // NewMap returns a new macro Map with default
 // type evaluators.
 //
-// Learn more at:  https://github.com/kataras/iris/tree/master/_examples/routing/dynamic-path
+// Learn more at:  https://github.com/kataras/iris/tree/v8/_examples/routing/dynamic-path
 func NewMap() *Map {
 	return &Map{
 		// it allows everything, so no need for a regexp here.

@@ -34,8 +34,8 @@ import (
 //
 // It completes the `activator.BaseController` interface.
 //
-// Example at: https://github.com/kataras/iris/tree/master/_examples/mvc/overview/web/controllers.
-// Example usage at: https://github.com/kataras/iris/blob/master/mvc/method_result_test.go#L17.
+// Example at: https://github.com/kataras/iris/tree/v8/_examples/mvc/overview/web/controllers.
+// Example usage at: https://github.com/kataras/iris/blob/v8/mvc/method_result_test.go#L17.
 type C struct {
 	// The Name of the `C` controller.
 	Name string

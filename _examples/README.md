@@ -154,7 +154,7 @@ useful to call middlewares or when many methods use the same collection of data.
 Optional `EndRequest(ctx)` function to perform any finalization after any method executed.
 
 Inheritance, see for example our `mvc.SessionController`, it has the `mvc.Controller` as an embedded field
-and it adds its logic to its `BeginRequest`, [here](https://github.com/kataras/iris/blob/master/mvc/session_controller.go). 
+and it adds its logic to its `BeginRequest`, [here](https://github.com/kataras/iris/blob/v8/mvc/session_controller.go). 
 
 Register one or more relative paths and able to get path parameters, i.e
 
@@ -200,7 +200,7 @@ func(c *ExampleController) Get() string |
                                 mvc.Result or (mvc.Result, error) and so on...
 ```
 
-where [mvc.Result](https://github.com/kataras/iris/blob/master/mvc/method_result.go) is an interface which contains only that function: `Dispatch(ctx iris.Context)`.
+where [mvc.Result](https://github.com/kataras/iris/blob/v8/mvc/method_result.go) is an interface which contains only that function: `Dispatch(ctx iris.Context)`.
 
 **Using Iris MVC for code reuse** 
 
@@ -327,7 +327,7 @@ You can serve [quicktemplate](https://github.com/valyala/quicktemplate) and [her
 
 #### More
 
-https://github.com/kataras/iris/tree/master/middleware#third-party-handlers
+https://github.com/kataras/iris/tree/v8/middleware#third-party-handlers
 
 ### Automated API Documentation
 
@@ -341,7 +341,7 @@ The `httptest` package is your way for end-to-end HTTP testing, it uses the http
 
 ### Caching
 
-iris cache library lives on its own [package](https://github.com/kataras/iris/tree/master/cache).
+iris cache library lives on its own [package](https://github.com/kataras/iris/tree/v8/cache).
 
 - [Simple](cache/simple/main.go)
 
@@ -349,7 +349,7 @@ iris cache library lives on its own [package](https://github.com/kataras/iris/tr
 
 ### Sessions
 
-iris session manager lives on its own [package](https://github.com/kataras/iris/tree/master/sessions).
+iris session manager lives on its own [package](https://github.com/kataras/iris/tree/v8/sessions).
 
 - [Overview](sessions/overview/main.go)
 - [Standalone](sessions/standalone/main.go)
@@ -366,7 +366,7 @@ iris session manager lives on its own [package](https://github.com/kataras/iris/
 
 ### Websockets
 
-iris websocket library lives on its own [package](https://github.com/kataras/iris/tree/master/websocket).
+iris websocket library lives on its own [package](https://github.com/kataras/iris/tree/v8/websocket).
 
 The package is designed to work with raw websockets although its API is similar to the famous [socket.io](https://socket.io). I have read an article recently and I felt very contented about my decision to design a **fast** websocket-**only** package for Iris and not a backwards socket.io-like package. You can read that article by following this link: https://medium.com/@ivanderbyl/why-you-don-t-need-socket-io-6848f1c871cd.
 
@@ -381,12 +381,12 @@ The package is designed to work with raw websockets although its API is similar 
 
 ### Typescript Automation Tools
 
-typescript automation tools have their own repository: [https://github.com/kataras/iris/tree/master/typescript](https://github.com/kataras/iris/tree/master/typescript) **it contains examples**
+typescript automation tools have their own repository: [https://github.com/kataras/iris/tree/v8/typescript](https://github.com/kataras/iris/tree/v8/typescript) **it contains examples**
 
 > I'd like to tell you that you can use your favourite but I don't think you will find such a thing anywhere else.
 
 ### Hey, You
 
-Developers should read the [godocs](https://godoc.org/github.com/kataras/iris) and https://docs.iris-go.com for a better understanding.
+Developers should read the [godocs](https://godoc.org/gopkg.in/kataras/iris.v8) and https://docs.iris-go.com for a better understanding.
 
 Psst, I almost forgot; do not forget to [star or watch](https://github.com/kataras/iris/stargazers) the project in order to stay updated with the latest tech trends, it never takes more than a second!

@@ -69,7 +69,7 @@ func WrapHandler(bodyHandler context.Handler, expiration time.Duration) context.
 //
 // it returns a context.Handler which can be used as a middleware, for more options use the `Cache`.
 //
-// Examples can be found at: https://github.com/kataras/iris/tree/master/_examples/#caching
+// Examples can be found at: https://github.com/kataras/iris/tree/v8/_examples/#caching
 func Handler(expiration time.Duration) context.Handler {
 	h := WrapHandler(nil, expiration)
 	return h

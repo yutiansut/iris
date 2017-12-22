@@ -15,11 +15,32 @@ Developers are not forced to upgrade if they don't really need it. Upgrade whene
 
 > Iris uses the [vendor directory](https://docs.google.com/document/d/1Bz5-UB7g2uPBdOx-rw5t9MxJwkfpx90cqG9AFL0JAYo) feature, so you get truly reproducible builds, as this method guards against upstream renames and deletes.
 
-**How to upgrade**: Open your command-line and execute this command: `go get -u github.com/kataras/iris` or let the automatic updater do that for you.
+# Fr, 22 Decemember 2017 | v8.5.9
+
+**This** is the **end of the version 8 cycle** and a new beginning for the upcoming version release.
+
+Read below the complete list of the **latest changes of the v8 cycle**.
+
+- [add comment doc on the core/memstore.go#Entry##GetByKindOrNil](https://github.com/kataras/iris/commit/729cbd553f8e71c19d5ce053c6100c78aac07a48)
+- [fix https://github.com/kataras/iris/issues/846](https://github.com/kataras/iris/commit/0e07d15c72ed7842d4676811209b5c21927aef0d)
+- [merge pull request https://github.com/kataras/iris/pull/843](https://github.com/kataras/iris/commit/26e4e96621ce058d355361777e4066630ad6a687)
+- [add example for the simple context#WriteGzip](https://github.com/kataras/iris/commit/c98d01258277b2329eab9554d328d4c265671444)
+- [add a simple hero template example as requested at https://github.com/kataras/iris/issues/840](https://github.com/kataras/iris/commit/0be77596420786203a080d523e7fa9bf7102b768)
+- [update the vendor json library which is used when 'WithOptimizations' passed on 'app.Run' and resolve https://github.com/kataras/iris/issues/839](https://github.com/kataras/iris/commit/8fbf35bd959ff1e1d6af768be944a228c1829f8f)
+- [add context#IsMobile](https://github.com/kataras/iris/commit/31c83c2655f4558775380f060b72876d16d8fde9)
+- [merge pull request https://github.com/kataras/iris/pull/828 | Fixed a bug on reverse routing path when no arguments and fix subfolder Amber templating issue](https://github.com/kataras/iris/commit/12d69de8ab4c3497fc277f17dcf0b297735557ea)
+- [merge pull request https://github.com/kataras/iris/pull/826 | Websocket: added OnPing callback to the Connection](https://github.com/kataras/iris/commit/261b69c5e2f6e5867b32d385e3161ec7680eb0ca)
+- [give some more control over request params and their entries](https://github.com/kataras/iris/commit/5ff55832e0cc91671bdf8f1633b1684cccba051b)
+- [improve test to cover the multi files per language new feature - requested at https://github.com/kataras/iris/issues/815](https://github.com/kataras/iris/commit/2f8882c02345754a632f75f287b80613b1d46806)
+- [update the vendor of the new iris-contrib/i18n to support multi locale files as requested at https://github.com/kataras/iris/issues/815](https://github.com/kataras/iris/commit/bfac5f026ef600f4edbc04331c663d9a609b161b)
+- [ add support for multi languages, without change the API, separated by commas as requested at https://github.com/kataras/iris/issues/815](https://github.com/kataras/iris/commit/d6f3c89bff2e3845a5df8dcb8fb9fec620d75550)
+- [update benchmarks and use throng on expressjs for better performance 21 nov 2017- linux version with ubuntu 17.10 and kernel 4.14, all libraries and software updated to their latest versions](https://github.com/kataras/iris/commit/107f954ddc593a73c0b15a77b69fbdf7a2ea2d4b)
+- [add an example for CSRF Protection](https://github.com/kataras/iris/commit/a7c300801a4f5d93afa199f1870f403aa03d713f)
+- [app.SPA from router wrapper to a simple handler, works faster now. Iris' router respects wildcards with other paths as well (unique) for almost a half year now... so we don't need a whole wrapper for those things anymore, fixes https://github.com/kataras/iris/issues/807](https://github.com/kataras/iris/commit/9d1e1cd5a3c75018cf7352c762a83aa702af6569)
 
 # Th, 09 November 2017 | v8.5.8
 
-- **IMPROVE** the `Single Page Application builder`[*](https://github.com/kataras/blob/master/core/router/router_spa_wrapper.go) and fix https://github.com/kataras/iris/issues/803 reported by @ionutvilie, a new example is located [here](_examples/file-server/embedded-single-page-application-with-other-routes).
+- **IMPROVE** the `Single Page Application builder`[*](https://github.com/kataras/blob/v8/core/router/router_spa_wrapper.go) and fix https://github.com/kataras/iris/issues/803 reported by @ionutvilie, a new example is located [here](_examples/file-server/embedded-single-page-application-with-other-routes).
     * `app.SPA` now returns the `*SPABuilder` and you can change some of its fields manually, i.e; 
         * `IndexNames` defaulted to empty but can be seted to `[]{"index.html"}` or call the **new** `AddIndexName` from the `app.SPA` manually if dynamic view on root has registered, see [here](_examples/file-server/single-page-application/embedded-single-page-application) how.
     * `AssetValidator` exists as it was and it's checked before the spa file server but it allows everything by-default because the real validation happens internally; if body was written or not, if not then reset the context's response writer and execute the router, as previously, otherwise release the context and send the response to the client.
@@ -28,7 +49,7 @@ Developers are not forced to upgrade if they don't really need it. Upgrade whene
 
 Nothing crazy here, just one addition which may help some people;
 
-Able to share configuration between multiple Iris instances based on the `$home_path+iris.yml` configuration file with the **new** [iris.WithGlobalConfiguration](https://github.com/kataras/iris/blob/master/configuration.go#L202) configurator[*](https://github.com/kataras/iris/blob/master/configuration.go#L191).
+Able to share configuration between multiple Iris instances based on the `$home_path+iris.yml` configuration file with the **new** [iris.WithGlobalConfiguration](https://github.com/kataras/iris/blob/v8/configuration.go#L202) configurator[*](https://github.com/kataras/iris/blob/v8/configuration.go#L191).
 
 Example:
 
@@ -58,7 +79,7 @@ func main() {
 - **DEPRECATE** the `app.StaticServe`, use `app.StaticWeb` which does the same thing but better or `iris/app.StaticHandler` which gives you more options to work on.
 - add some debug messages for route registrations, to be aligned with the mvc debug messages.
 - improve the https://iris-go.com/v8/recipe  -- now you can see other files like assets as well -- lexical order of categories instead of "level".
-- add [8 more examples](_examples/experimental-handlers) to this repository, originally lived at https://github.com/iris-contrib/middleware and https://github.com/iris-contrib/examples/tree/master/experimental-handlers.
+- add [8 more examples](_examples/experimental-handlers) to this repository, originally lived at https://github.com/iris-contrib/middleware/tree/v8 and https://github.com/iris-contrib/examples/tree/v8/experimental-handlers.
 
 _TODO;_ 
 
@@ -103,7 +124,7 @@ Instructions can be found at: https://github.com/kataras/iris/issues/796
 - FIX: [Websocket: memory leak on startPinger](https://github.com/kataras/iris/issues/787) by @jerson with PR: https://github.com/kataras/iris/pull/788
 - FIX: [Websocket: time.Ticker cause memory leak](https://github.com/kataras/iris/issues/791) by @jerson with PR: https://github.com/kataras/iris/pull/792
 - NEW: [Websocket: total connections](https://github.com/kataras/iris/issues/793) by @jerson with PR: https://github.com/kataras/iris/pull/795
-- NEW: Add a `raven` middleware inside [iris-contrib/middleware/raven](https://github.com/iris-contrib/middleware/tree/master/raven) as requested at "[Can I use iris with sentry?](https://github.com/kataras/iris/issues/785)"
+- NEW: Add a `raven` middleware inside [iris-contrib/middleware/raven](https://github.com/iris-contrib/middleware/tree/v8/raven) as requested at "[Can I use iris with sentry?](https://github.com/kataras/iris/issues/785)"
 
 ### 🎗️ People that you should follow
 
@@ -307,7 +328,7 @@ Another good example with a typical folder structure, that many developers are u
 - MVC: Give controllers the ability to auto-initialize themselves by  `OnActivate` func derives from the new [ActivateListener](mvc/activator/activate_listener.go) interface, this can be used to perform any custom actions when the app registers the supported Controllers. See [mvc/session_controller.go](mvc/session_controller.go) for a good use case.
 - errors.Reporter.AddErr returns true if the error is added to the stack, otherwise false.
 - @ZaniaDeveloper fixed https://github.com/kataras/iris/issues/778 with PR: https://github.com/kataras/iris/pull/779.
-- Add `StatusSeeOther` at [mvc login example](https://github.com/kataras/iris/blob/master/_examples/mvc/login/user/controller.go#L53) for Redirection, reported by @motecshine at https://github.com/kataras/iris/issues/777.
+- Add `StatusSeeOther` at [mvc login example](https://github.com/kataras/iris/blob/v8/_examples/mvc/login/user/controller.go#L53) for Redirection, reported by @motecshine at https://github.com/kataras/iris/issues/777.
 - Fix `DisableVersionChecker` configuration field is not being passed correctly when it was true via `app.Run(..., iris.WithConfiguration{DisableVersionChecker:true, ...})` call.
 
 # Su, 01 October 2017 | v8.4.4
@@ -444,7 +465,7 @@ func (c *Controller) GetBy(is bool) { // <--
 - Update `vendor blackfriday` package to its latest version, 2.0.0
 - Update [documentation](https://godoc.org/github.com/kataras/iris) for go 1.9
 - Update [_examples](_examples) folder for go 1.9
-- Update examples inside https://github.com/iris-contrib/middleware for go 1.9
+- Update examples inside https://github.com/iris-contrib/middleware/tree/v8 for go 1.9
 - Update https://github.com/kataras/iris-contrib/examples for go 1.9
 - Update https://iris-go.com/v8/recipe for go 1.9
 
@@ -551,7 +572,7 @@ My personal advice to you is to always organize and split your code nicely and w
 
 I'm aware that this is not always an easy task to do, therefore is here if you ever need it :)
 
-A ridiculous simple example of this feature can be found at the [mvc/controller_test.go](https://github.com/kataras/iris/blob/master/mvc/controller_test.go#L424) file.
+A ridiculous simple example of this feature can be found at the [mvc/controller_test.go](https://github.com/kataras/iris/blob/v8/mvc/controller_test.go#L424) file.
 
 
 # Tu, 22 August 2017 | v8.3.2
@@ -582,7 +603,7 @@ app.Controller(new(ProfileController), checkLogin)
 // [...]
 ```
 
-Usage of these kind of MVC features could be found at the [mvc/controller_test.go](https://github.com/kataras/iris/blob/master/mvc/controller_test.go#L174) file.
+Usage of these kind of MVC features could be found at the [mvc/controller_test.go](https://github.com/kataras/iris/blob/v8/mvc/controller_test.go#L174) file.
 
 ### Other minor enhancements
 
@@ -810,7 +831,7 @@ useful to call middlewares or when many methods use the same collection of data.
 Optional `EndRequest(ctx)` function to perform any finalization after any method executed.
 
 Inheritance, recursively, see for example our `mvc.SessionController`, it has the `mvc.Controller` as an embedded field
-and it adds its logic to its `BeginRequest`, [here](https://github.com/kataras/iris/blob/master/mvc/session_controller.go). 
+and it adds its logic to its `BeginRequest`, [here](https://github.com/kataras/iris/blob/v8/mvc/session_controller.go). 
 
 Read access to the current route  via the `Route` field.
 
@@ -823,7 +844,7 @@ If you're new to back-end web development read about the MVC architectural patte
 
 Follow the examples below,
 
-https://github.com/kataras/iris/tree/master/_examples/#mvc
+https://github.com/kataras/iris/tree/v8/_examples/#mvc
 
 ### Bugs
 
@@ -1056,7 +1077,7 @@ Under the cover, session database works entirely differently than before but not
 # Mo, 31 July 2017 | v8.1.2
 
 Add a `ConfigureHost` function as an alternative way to customize the hosts via `host.Configurator`.
-The first way was to pass `host.Configurator` as optional arguments on `iris.Runner`s built'n functions (`iris#Server, iris#Listener, iris#Addr, iris#TLS, iris#AutoTLS`), example of this can be found [there](https://github.com/kataras/iris/blob/master/_examples/http-listening/notify-on-shutdown).
+The first way was to pass `host.Configurator` as optional arguments on `iris.Runner`s built'n functions (`iris#Server, iris#Listener, iris#Addr, iris#TLS, iris#AutoTLS`), example of this can be found [there](https://github.com/kataras/iris/blob/v8/_examples/http-listening/notify-on-shutdown).
 
 Example Code:
 
@@ -1219,7 +1240,7 @@ func configureHost(su *host.Supervisor) {
 }
 ```
 
-Read more about listening and gracefully shutdown by navigating to: https://github.com/kataras/iris/tree/master/_examples/#http-listening
+Read more about listening and gracefully shutdown by navigating to: https://github.com/kataras/iris/tree/v8/_examples/#http-listening
 
 # We, 26 July 2017 | v8.1.0
 
@@ -1230,7 +1251,7 @@ The API didn't change much except these:
 -  the new implementation does not recognise `Fatal` and `Panic` because, actually, iris never panics
 - the old `app.Logger().Out = io.Writer` should be written as `app.Logger().SetOutput(io.Writer)`
 
-The new implementation, [golog](https://github.com/kataras/golog) is featured, **[three times faster than logrus](https://github.com/kataras/golog/tree/master/_benchmarks)**
+The new implementation, [golog](https://github.com/kataras/golog) is featured, **[three times faster than logrus](https://github.com/kataras/golog/tree/v8/_benchmarks)**
 and it completes every common usage.
 
 ### Integration
@@ -1263,7 +1284,7 @@ No API Changes.
 
 ### Performance
 
-Add an experimental [Configuration#EnableOptimizations](https://github.com/kataras/iris/blob/master/configuration.go#L170) option.
+Add an experimental [Configuration#EnableOptimizations](https://github.com/kataras/iris/blob/v8/configuration.go#L170) option.
 
 ```go
 type Configuration {
@@ -1308,11 +1329,11 @@ No API changes.
 ### HTTP Errors
 
 Fix a rare behavior: error handlers are not executed correctly
-when a before-handler by-passes the order of execution, relative to the [previous feature](https://github.com/kataras/iris/blob/master/HISTORY.md#su-16-july-2017--v803). 
+when a before-handler by-passes the order of execution, relative to the [previous feature](https://github.com/kataras/iris/blob/v8/HISTORY.md#su-16-july-2017--v803). 
 
 ### Request Logger
 
-Add `Configuration#MessageContextKey`. Example can be found at [_examples/http_request/request-logger/main.go](https://github.com/kataras/iris/blob/master/_examples/http_request/request-logger/main.go#L48).
+Add `Configuration#MessageContextKey`. Example can be found at [_examples/http_request/request-logger/main.go](https://github.com/kataras/iris/blob/v8/_examples/http_request/request-logger/main.go#L48).
 
 # Su, 16 July 2017 | v8.0.3
 
@@ -1326,14 +1347,14 @@ Relative issues:
 
 ### HTTP Errors
 
-Able to register a chain of Handlers (and middleware with `ctx.Next()` support like routes) for a specific error code, read more at [issues/674](https://github.com/kataras/iris/issues/674). Usage example can be found at [_examples/http_request/request-logger/main.go](https://github.com/kataras/iris/blob/master/_examples/http_request/request-logger/main.go#L41).
+Able to register a chain of Handlers (and middleware with `ctx.Next()` support like routes) for a specific error code, read more at [issues/674](https://github.com/kataras/iris/issues/674). Usage example can be found at [_examples/http_request/request-logger/main.go](https://github.com/kataras/iris/blob/v8/_examples/http_request/request-logger/main.go#L41).
 
 
-New function to register a Handler or a chain of Handlers for all official http error codes, by calling the new `app.OnAnyErrorCode(func(ctx context.Context){})`, read more at [issues/675](https://github.com/kataras/iris/issues/675). Usage example can be found at [_examples/http_request/request-logger/main.go](https://github.com/kataras/iris/blob/master/_examples/http_request/request-logger/main.go#L42).
+New function to register a Handler or a chain of Handlers for all official http error codes, by calling the new `app.OnAnyErrorCode(func(ctx context.Context){})`, read more at [issues/675](https://github.com/kataras/iris/issues/675). Usage example can be found at [_examples/http_request/request-logger/main.go](https://github.com/kataras/iris/blob/v8/_examples/http_request/request-logger/main.go#L42).
 
 ### Request Logger
 
-Add `Configuration#LogFunc` and `Configuration#Columns` fields, read more at [issues/676](https://github.com/kataras/iris/issues/676). Example can be found at [_examples/http_request/request-logger/request-logger-file/main.go](https://github.com/kataras/iris/blob/master/_examples/http_request/request-logger/request-logger-file/main.go).
+Add `Configuration#LogFunc` and `Configuration#Columns` fields, read more at [issues/676](https://github.com/kataras/iris/issues/676). Example can be found at [_examples/http_request/request-logger/request-logger-file/main.go](https://github.com/kataras/iris/blob/v8/_examples/http_request/request-logger/request-logger-file/main.go).
 
 
 Have fun and don't forget to [star](https://github.com/kataras/iris/stargazers) the github repository, it gives me power to continue publishing my work!
@@ -1427,7 +1448,7 @@ Nothing tremendous at this minor version.
 
 We've just added a configuration field in order to ignore errors received by the `Run` function, see below.
 
-[Configuration#IgnoreServerErrors](https://github.com/kataras/iris/blob/master/configuration.go#L255)
+[Configuration#IgnoreServerErrors](https://github.com/kataras/iris/blob/v8/configuration.go#L255)
 ```go
 type Configuration struct {
     // [...]
@@ -1446,7 +1467,7 @@ type Configuration struct {
     // [...]
 }
 ```
-[Configuration#WithoutServerError](https://github.com/kataras/iris/blob/master/configuration.go#L106)
+[Configuration#WithoutServerError](https://github.com/kataras/iris/blob/v8/configuration.go#L106)
 ```go
 // WithoutServerError will cause to ignore the matched "errors"
 // from the main application's `Run` function.
@@ -1462,7 +1483,7 @@ WithoutServerError(errors ...error) Configurator
 By default no error is being ignored, of course.
 
 Example code:
-[_examples/http-listening/listen-addr/omit-server-errors](https://github.com/kataras/iris/tree/master/_examples/http-listening/listen-addr/omit-server-errors)
+[_examples/http-listening/listen-addr/omit-server-errors](https://github.com/kataras/iris/tree/v8/_examples/http-listening/listen-addr/omit-server-errors)
 ```go
 package main
 
@@ -1618,18 +1639,18 @@ Fix [typescript tools](typescript).
 Replace supervisor's tasks with events, like `RegisterOnShutdown`, `RegisterOnError`, `RegisterOnServe` and fix the (unharmful) race condition when output the banner to the console. Global notifier for interrupt signals which can be disabled via `app.Run([...], iris.WithoutInterruptHandler)`, look [graceful-shutdown](_examples/http-listening/graceful-shutdown/main.go) example for more.
 
 
-More handlers are ported to Iris (they can be used as they are without `iris.FromStd`), these handlers can be found at [iris-contrib/middleware](https://github.com/iris-contrib/middleware). Feel free to put your own there.
+More handlers are ported to Iris (they can be used as they are without `iris.FromStd`), these handlers can be found at [iris-contrib/middleware](https://github.com/iris-contrib/middleware/tree/v8). Feel free to put your own there.
 
 
 | Middleware | Description | Example |
 | -----------|--------|-------------|
-| [jwt](https://github.com/iris-contrib/middleware/tree/master/jwt) | Middleware checks for a JWT on the `Authorization` header on incoming requests and decodes it. | [iris-contrib/middleware/jwt/_example](https://github.com/iris-contrib/middleware/tree/master/jwt/_example) |
-| [cors](https://github.com/iris-contrib/middleware/tree/master/cors) | HTTP Access Control. | [iris-contrib/middleware/cors/_example](https://github.com/iris-contrib/middleware/tree/master/cors/_example) |
-| [secure](https://github.com/iris-contrib/middleware/tree/master/secure) | Middleware that implements a few quick security wins. | [iris-contrib/middleware/secure/_example](https://github.com/iris-contrib/middleware/tree/master/secure/_example/main.go) |
-| [tollbooth](https://github.com/iris-contrib/middleware/tree/master/tollboothic) | Generic middleware to rate-limit HTTP requests. | [iris-contrib/middleware/tollbooth/_examples/limit-handler](https://github.com/iris-contrib/middleware/tree/master/tollbooth/_examples/limit-handler) |
-| [cloudwatch](https://github.com/iris-contrib/middleware/tree/master/cloudwatch) |  AWS cloudwatch metrics middleware. |[iris-contrib/middleware/cloudwatch/_example](https://github.com/iris-contrib/middleware/tree/master/cloudwatch/_example) |
-| [new relic](https://github.com/iris-contrib/middleware/tree/master/newrelic) | Official [New Relic Go Agent](https://github.com/newrelic/go-agent). | [iris-contrib/middleware/newrelic/_example](https://github.com/iris-contrib/middleware/tree/master/newrelic/_example) |
-| [prometheus](https://github.com/iris-contrib/middleware/tree/master/prometheus)| Easily create metrics endpoint for the [prometheus](http://prometheus.io) instrumentation tool | [iris-contrib/middleware/prometheus/_example](https://github.com/iris-contrib/middleware/tree/master/prometheus/_example) |
+| [jwt](https://github.com/iris-contrib/middleware/tree/v8/jwt) | Middleware checks for a JWT on the `Authorization` header on incoming requests and decodes it. | [iris-contrib/middleware/jwt/_example](https://github.com/iris-contrib/middleware/tree/v8/jwt/_example) |
+| [cors](https://github.com/iris-contrib/middleware/tree/v8/cors) | HTTP Access Control. | [iris-contrib/middleware/cors/_example](https://github.com/iris-contrib/middleware/tree/v8/cors/_example) |
+| [secure](https://github.com/iris-contrib/middleware/tree/v8/secure) | Middleware that implements a few quick security wins. | [iris-contrib/middleware/secure/_example](https://github.com/iris-contrib/middleware/tree/v8/secure/_example/main.go) |
+| [tollbooth](https://github.com/iris-contrib/middleware/tree/v8/tollboothic) | Generic middleware to rate-limit HTTP requests. | [iris-contrib/middleware/tollbooth/_examples/limit-handler](https://github.com/iris-contrib/middleware/tree/v8/tollbooth/_examples/limit-handler) |
+| [cloudwatch](https://github.com/iris-contrib/middleware/tree/v8/cloudwatch) |  AWS cloudwatch metrics middleware. |[iris-contrib/middleware/cloudwatch/_example](https://github.com/iris-contrib/middleware/tree/v8/cloudwatch/_example) |
+| [new relic](https://github.com/iris-contrib/middleware/tree/v8/newrelic) | Official [New Relic Go Agent](https://github.com/newrelic/go-agent). | [iris-contrib/middleware/newrelic/_example](https://github.com/iris-contrib/middleware/tree/v8/newrelic/_example) |
+| [prometheus](https://github.com/iris-contrib/middleware/tree/v8/prometheus)| Easily create metrics endpoint for the [prometheus](http://prometheus.io) instrumentation tool | [iris-contrib/middleware/prometheus/_example](https://github.com/iris-contrib/middleware/tree/v8/prometheus/_example) |
 
 
 v7.x is deprecated because it sold as it is and it is not part of the public, stable `gopkg.in` iris versions. Developers/users of this library should upgrade their apps to v8.x, the refactor process will cost nothing for most of you, as the most common API remains as it was. The changelog history from that are being presented below.
@@ -1718,20 +1739,20 @@ Iris now supports static paths and dynamic paths for the same path prefix with z
 
 The rest of the special Iris' routing features, including static & wildcard subdomains are still work like a charm.
 
-> This was one of the most popular community's feature requests. Click [here](https://github.com/kataras/iris/blob/master/_examples/beginner/routing/overview/main.go) to see a trivial example.
+> This was one of the most popular community's feature requests. Click [here](https://github.com/kataras/iris/blob/v8/_examples/beginner/routing/overview/main.go) to see a trivial example.
 
 # Sa, 10 June 2017 | v7.0.4
 
-- Simplify and add a test for the [basicauth middleware](https://github.com/kataras/iris/tree/master/middleware/basicauth), no need to be
+- Simplify and add a test for the [basicauth middleware](https://github.com/kataras/iris/tree/v8/middleware/basicauth), no need to be
 stored inside the Context anymore, developers can get the validated user(username and password) via `context.Request().BasicAuth()`. `basicauth.Config.ContextKey` was removed, just remove that field from your configuration, it's useless now. 
 
 # Sa, 10 June 2017 | v7.0.3
 
 - New `context.Session().PeekFlash("key")` added, unlike `GetFlash` this will return the flash value but keep the message valid for the next requests too.
-- Complete the [httptest example](https://github.com/iris-contrib/examples/tree/master/httptest).
+- Complete the [httptest example](https://github.com/iris-contrib/examples/tree/v8/httptest).
 - Fix the (marked as deprecated) `ListenLETSENCRYPT` function.
-- Upgrade the [iris-contrib/middleware](https://github.com/iris-contrib/middleware) including JWT, CORS and Secure handlers.
-- Add [OAuth2 example](https://github.com/iris-contrib/examples/tree/master/oauth2) -- showcases the third-party package [goth](https://github.com/markbates/goth) integration with Iris.
+- Upgrade the [iris-contrib/middleware](https://github.com/iris-contrib/middleware/tree/v8) including JWT, CORS and Secure handlers.
+- Add [OAuth2 example](https://github.com/iris-contrib/examples/tree/v8/oauth2) -- showcases the third-party package [goth](https://github.com/markbates/goth) integration with Iris.
 
 ### Community
 
@@ -1750,7 +1771,7 @@ stored inside the Context anymore, developers can get the validated user(usernam
 
 After 2+ months of hard work and collaborations, Iris [version 7](https://github.com/kataras/iris) was published earlier today.
 
-If you're new to Iris you don't have to read all these, just navigate to the [updated examples](https://github.com/kataras/iris/tree/master/_examples) and you should be fine:)
+If you're new to Iris you don't have to read all these, just navigate to the [updated examples](https://github.com/kataras/iris/tree/v8/_examples) and you should be fine:)
 
 Note that this section will not
 cover the internal changes, the difference is so big that anybody can see them with a glimpse, even the code structure itself.
@@ -1781,8 +1802,8 @@ I remember when Iris was in its alpha state and it had 4k stars on its first wee
 General
 
 - Several enhancements for the typescript transpiler, view engine, websocket server and sessions manager
-- All `Listen` methods replaced with a single `Run` method, see [here](https://github.com/kataras/iris/tree/master/_examples/beginner/listening)
-- Configuration, easier to modify the defaults, see [here](https://github.com/kataras/iris/tree/master/_examples/beginner/cofiguration)
+- All `Listen` methods replaced with a single `Run` method, see [here](https://github.com/kataras/iris/tree/v8/_examples/beginner/listening)
+- Configuration, easier to modify the defaults, see [here](https://github.com/kataras/iris/tree/v8/_examples/beginner/cofiguration)
 - `HandlerFunc` removed, just `Handler` of `func(context.Context)` where context.Context derives from `import "github.com/kataras/iris/context"` (**NEW**: this import path is optional, use `iris.Context` if you've installed Go 1.9)
     - Simplify API, i.e: instead of `Handle,HandleFunc,Use,UseFunc,Done,DoneFunc,UseGlobal,UseGlobalFunc` use `Handle,Use,Done,UseGlobal`.
 - Response time decreased even more (9-35%, depends on the application)
@@ -1794,7 +1815,7 @@ General
 
 Routing
 - Remove of multiple routers, now we have the fresh Iris router which is based on top of the julien's [httprouter](https://github.com/julienschmidt/httprouter).
-    > Update 11 June 2017: As of 7.0.5 this is changed, read [here](https://github.com/kataras/iris/blob/master/HISTORY.md#su-11-june-2017--v705).
+    > Update 11 June 2017: As of 7.0.5 this is changed, read [here](https://github.com/kataras/iris/blob/v8/HISTORY.md#su-11-june-2017--v705).
 - Subdomains routing algorithm has been improved.
 - Iris router is using a custom interpreter with parser and path evaluator to achieve the best expressiveness, with zero performance loss, you ever seen so far, i.e: 
     - `app.Get("/", "/users/{userid:int min(1)}", handler)`,
@@ -1806,7 +1827,7 @@ Routing
         - The previous syntax of `:param` and `*param` still working as expected. Previous rules for paths confliction remain as they were.
             - Also, path parameter names should be only alphabetical now, numbers and symbols are not allowed (for your own good, I have seen a lot the last year...).
 
-Click [here](https://github.com/kataras/iris/tree/master/_examples/beginner/routing) for details.
+Click [here](https://github.com/kataras/iris/tree/v8/_examples/beginner/routing) for details.
 > It was my first attempt/experience on the interpreters field, so be good with it :)
 
 Context
@@ -1822,7 +1843,7 @@ Context
     - `context.StatusCode()` -> `context.GetStatusCode()`
     - `app.OnError` -> `app.OnErrorCode`
     - Errors per party are removed by-default, you can just use one global error handler with logic like "if path starts with 'prefix' fire this error handler, else...". 
-- Easy way to change Iris' default `Context` with a custom one, see [here](https://github.com/kataras/iris/tree/master/_examples/intermediate/custom-context)
+- Easy way to change Iris' default `Context` with a custom one, see [here](https://github.com/kataras/iris/tree/v8/_examples/intermediate/custom-context)
 - `context.ResponseWriter().SetBeforeFlush(...)` works for Flush and HTTP/2 Push, respectfully
 - Several improvements under the `Request transactions` 
 - Remember that you had to set a status code on each of the render-relative methods? Now it's not required, it just renders
@@ -1834,7 +1855,7 @@ with the status code that user gave with `context.StatusCode` or with `200 OK`, 
 Server
 - Able to set custom underline *http.Server(s) with new Host (aka Server Supervisor) feature 
     - `Done` and `Err` channels to catch shutdown or any errors on custom hosts,
-    - Schedule custom tasks(with cancelation) when server is running, see [here](https://github.com/kataras/iris/tree/master/_examples/intermediate/graceful-shutdown)
+    - Schedule custom tasks(with cancelation) when server is running, see [here](https://github.com/kataras/iris/tree/v8/_examples/intermediate/graceful-shutdown)
 - Interrupt handler task for gracefully shutdown (when `CTRL/CMD+C`) are enabled by-default, you can disable its via configuration: `app.Run(iris.Addr(":8080"), iris.WithoutInterruptHandler)`
 
 Future plans

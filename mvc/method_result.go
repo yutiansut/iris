@@ -19,7 +19,7 @@ import (
 // All types that complete this interface
 // can be returned as values from the method functions.
 //
-// Example at: https://github.com/kataras/iris/tree/master/_examples/mvc/overview.
+// Example at: https://github.com/kataras/iris/tree/v8/_examples/mvc/overview.
 type Result interface { // NOTE: Should be always compatible with the methodfunc.Result.
 	// Dispatch should sends the response to the context's response writer.
 	Dispatch(ctx context.Context)
@@ -33,7 +33,7 @@ var defaultFailureResponse = Response{Code: methodfunc.DefaultErrStatusCode}
 // otherwise it returns the "failure" response if any,
 // if not then a 400 bad request is being sent.
 //
-// Example usage at: https://github.com/kataras/iris/blob/master/mvc/method_result_test.go.
+// Example usage at: https://github.com/kataras/iris/blob/v8/mvc/method_result_test.go.
 func Try(fn func() Result, failure ...Result) Result {
 	var failed bool
 	var actionResponse Result

@@ -25,8 +25,8 @@ In this tutorial, we are building a multiple file upload form using DropzoneJS, 
 
 1. Download [Go(Golang)](https://golang.org/dl), setup your computer as shown there and continue to 2.
 2. Install [Iris](https://github.com/kataras/iris); open a terminal and execute `go get -u github.com/kataras/iris`
-3. Download DropzoneJS from [this URL](https://raw.githubusercontent.com/enyo/dropzone/master/dist/dropzone.js). DropzoneJS does not rely on JQuery, you will not have to worry that, upgrading JQuery version breaks your application.
-4. Download dropzone.css from [this URL](https://raw.githubusercontent.com/enyo/dropzone/master/dist/dropzone.css), if you want some already made css.
+3. Download DropzoneJS from [this URL](https://raw.githubusercontent.com/enyo/dropzone/v8/dist/dropzone.js). DropzoneJS does not rely on JQuery, you will not have to worry that, upgrading JQuery version breaks your application.
+4. Download dropzone.css from [this URL](https://raw.githubusercontent.com/enyo/dropzone/v8/dist/dropzone.css), if you want some already made css.
 5. Create a folder "./public/uploads", this is for storing uploaded files.
 6. Create a file "./views/upload.html", this is for the front form page.
 7. Create a file "./main.go", this is for handling backend file upload process.

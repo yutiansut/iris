@@ -1,6 +1,6 @@
 # [![Logo created by @santoshanand](logo_white_35_24.png)](https://iris-go.com) Iris
 
-[![build status](https://img.shields.io/travis/kataras/iris/master.svg?style=flat-square)](https://travis-ci.org/kataras/iris)[![Backers on Open Collective](https://opencollective.com/iris/backers/badge.svg?style=flat-square)](#backers)[![Sponsors on Open Collective](https://opencollective.com/iris/sponsors/badge.svg?style=flat-square)](#sponsors)[![report card](https://img.shields.io/badge/report%20card-a%2B-ff3333.svg?style=flat-square)](http://goreportcard.com/report/kataras/iris)[![github closed issues](https://img.shields.io/github/issues-closed-raw/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/issues?q=is%3Aissue+is%3Aclosed)[![release](https://img.shields.io/github/release/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/releases)[![view examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg?style=flat-square)](https://github.com/kataras/iris/tree/master/_examples)[![chat](https://img.shields.io/badge/community-%20chat-00BCD4.svg?style=flat-square)](https://kataras.rocket.chat/channel/iris)[![CLA assistant](https://cla-assistant.io/readme/badge/kataras/iris?style=flat-square)](https://cla-assistant.io/kataras/iris)
+[![build status](https://img.shields.io/travis/kataras/iris/v8.svg?style=flat-square)](https://travis-ci.org/kataras/iris)[![Backers on Open Collective](https://opencollective.com/iris/backers/badge.svg?style=flat-square)](#backers)[![Sponsors on Open Collective](https://opencollective.com/iris/sponsors/badge.svg?style=flat-square)](#sponsors)[![report card](https://img.shields.io/badge/report%20card-a%2B-ff3333.svg?style=flat-square)](http://goreportcard.com/report/kataras/iris)[![github closed issues](https://img.shields.io/github/issues-closed-raw/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/issues?q=is%3Aissue+is%3Aclosed)[![release](https://img.shields.io/github/release/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/releases)[![view examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg?style=flat-square)](https://github.com/kataras/iris/tree/v8/_examples)[![chat](https://img.shields.io/badge/community-%20chat-00BCD4.svg?style=flat-square)](https://kataras.rocket.chat/channel/iris)[![CLA assistant](https://cla-assistant.io/readme/badge/kataras/iris?style=flat-square)](https://cla-assistant.io/kataras/iris)
 
 <a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/Qw6E1MTHvUJW6BtwUUf9qwsy/kataras/iris'>
   <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/Qw6E1MTHvUJW6BtwUUf9qwsy/kataras/iris.svg' />
@@ -40,7 +40,7 @@ Iris现在已经到第8版了，但是我们从未停止开发。有很多非常
 ## 内容列表
 
 * [安装](#installation)
-* [最近更新](https://github.com/kataras/iris/blob/master/HISTORY.md#tu-07-november-2017--v857)
+* [最近更新](https://github.com/kataras/iris/blob/v8/HISTORY.md#fr-22-decemember-2017--v859)
 * [快速入门](#getting-started)
 * [进阶](_examples/)
     * [MVC (模型 视图 控制器)](_examples/#mvc) **NEW**
@@ -123,7 +123,7 @@ func main() {
 }
 ```
 
-> 想要了解更多关于路径参数配置，戳[这里](https://github.com/kataras/iris/blob/master/_examples/routing/dynamic-path/main.go#L31).
+> 想要了解更多关于路径参数配置，戳[这里](https://github.com/kataras/iris/blob/v8/_examples/routing/dynamic-path/main.go#L31).
 
 ```html
 <!-- file: ./views/hello.html -->
@@ -206,7 +206,7 @@ func (c *HelloWorldController) GetWelcomeBy(name string, numTimes int) {
 }
 
 ```
-> [_examples/mvc](_examples/mvc) 和 [mvc/controller_test.go](https://github.com/kataras/iris/blob/master/mvc/controller_test.go) 两个简单的例子可以让你更好的了解 Iris MVC 的使用方式
+> [_examples/mvc](_examples/mvc) 和 [mvc/controller_test.go](https://github.com/kataras/iris/blob/v8/mvc/controller_test.go) 两个简单的例子可以让你更好的了解 Iris MVC 的使用方式
 
 每一个在controller中导出的Go方法名都和HTTP方法(`Get`, `Post`, `Put`, `Delete`...) 一一对应
 

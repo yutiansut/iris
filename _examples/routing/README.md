@@ -27,7 +27,7 @@ A Handler, as the name implies, handle requests.
 type Handler func(Context)
 ```
 
-Once the handler is registered, we can use the returned [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance to give a name to the handler registration for easier lookup in code or in templates.
+Once the handler is registered, we can use the returned [`Route`](https://godoc.org/gopkg.in/kataras/iris.v8/core/router#Route) instance to give a name to the handler registration for easier lookup in code or in templates.
 
 For more information, checkout the [Routing and reverse lookups](routing_reverse.md) section.
 
@@ -306,7 +306,7 @@ that can be used to communicate between handlers and middleware(s) goes to
 
 # Routing and reverse lookups
 
-As mentioned in the [Handlers](handlers.md) chapter, Iris provides several handler registration methods, each of which returns a [`Route`](https://godoc.org/github.com/kataras/iris/core/router#Route) instance.
+As mentioned in the [Handlers](handlers.md) chapter, Iris provides several handler registration methods, each of which returns a [`Route`](https://godoc.org/gopkg.in/kataras/iris.v8/core/router#Route) instance.
 
 ## Route naming
 
@@ -359,14 +359,14 @@ Page 17: http://localhost:8080/page/17
 
 We can use the following methods/functions to work with named routes (and their parameters):
 
-* [`GetRoutes`](https://godoc.org/github.com/kataras/iris/core/router#APIBuilder.GetRoutes) function to get all registered routes
-* [`GetRoute(routeName string)`](https://godoc.org/github.com/kataras/iris/core/router#APIBuilder.GetRoute) method to retrieve a route by name
-* [`URL(routeName string, paramValues ...interface{})`](https://godoc.org/github.com/kataras/iris/core/router#RoutePathReverser.URL) method to generate url string based on supplied parameters
-* [`Path(routeName string, paramValues ...interface{}`](https://godoc.org/github.com/kataras/iris/core/router#RoutePathReverser.Path) method to generate just the path (without host and protocol) portion of the URL based on provided values
+* [`GetRoutes`](https://godoc.org/gopkg.in/kataras/iris.v8/core/router#APIBuilder.GetRoutes) function to get all registered routes
+* [`GetRoute(routeName string)`](https://godoc.org/gopkg.in/kataras/iris.v8/core/router#APIBuilder.GetRoute) method to retrieve a route by name
+* [`URL(routeName string, paramValues ...interface{})`](https://godoc.org/gopkg.in/kataras/iris.v8/core/router#RoutePathReverser.URL) method to generate url string based on supplied parameters
+* [`Path(routeName string, paramValues ...interface{}`](https://godoc.org/gopkg.in/kataras/iris.v8/core/router#RoutePathReverser.Path) method to generate just the path (without host and protocol) portion of the URL based on provided values
 
 ## Examples
 
-Check out the [https://github.com/kataras/iris/tree/master/_examples/view/template_html_4](https://github.com/kataras/iris/tree/master/_examples/view/template_html_4) example for more details.
+Check out the [https://github.com/kataras/iris/tree/v8/_examples/view/template_html_4](https://github.com/kataras/iris/tree/v8/_examples/view/template_html_4) example for more details.
 
 # Middleware
 
@@ -471,7 +471,7 @@ func contactHandler(ctx iris.Context) {
 }
 ```
 
-## [Explore](https://github.com/kataras/iris/tree/master/middleware)
+## [Explore](https://github.com/kataras/iris/tree/v8/middleware)
 
 # Wrapping the Router
 
@@ -633,7 +633,7 @@ func index(ctx context.Context) {
 
 # Context Outline
 
-The `iris.Context` source code can be found [here](https://github.com/kataras/iris/blob/master/context/context.go). Keep note using an IDE/Editors with `auto-complete` feature will help you a lot.
+The `iris.Context` source code can be found [here](https://github.com/kataras/iris/blob/v8/context/context.go). Keep note using an IDE/Editors with `auto-complete` feature will help you a lot.
 
 ```go
 // Context is the midle-man server's "object" for the clients.
@@ -732,7 +732,7 @@ type Context interface {
     // Translate is the i18n (localization) middleware's function,
     // it calls the Get("translate") to return the translated value.
     //
-    // Example: https://github.com/kataras/iris/tree/master/_examples/miscellaneous/i18n
+    // Example: https://github.com/kataras/iris/tree/v8/_examples/miscellaneous/i18n
     Translate(format string, args ...interface{}) string
 
     //  +------------------------------------------------------------+
@@ -962,7 +962,7 @@ type Context interface {
     //
     // Look .ViewData and .View too.
     //
-    // Example: https://github.com/kataras/iris/tree/master/_examples/view/context-view-data/
+    // Example: https://github.com/kataras/iris/tree/v8/_examples/view/context-view-data/
     ViewLayout(layoutTmplFile string)
 
     // ViewData saves one or more key-value pair in order to be passed if and when .View
@@ -982,7 +982,7 @@ type Context interface {
     //
     // Look .ViewLayout and .View too.
     //
-    // Example: https://github.com/kataras/iris/tree/master/_examples/view/context-view-data/
+    // Example: https://github.com/kataras/iris/tree/v8/_examples/view/context-view-data/
     ViewData(key string, value interface{})
 
     // GetViewData returns the values registered by `context#ViewData`.
@@ -1003,7 +1003,7 @@ type Context interface {
     //
     // Look: .ViewData and .ViewLayout too.
     //
-    // Examples: https://github.com/kataras/iris/tree/master/_examples/view/
+    // Examples: https://github.com/kataras/iris/tree/v8/_examples/view/
     View(filename string) error
 
     // Binary writes out the raw bytes as binary data.
@@ -1098,7 +1098,7 @@ type Context interface {
     // this transaction scope is only for context's response.
     // Transactions have their own middleware ecosystem also, look iris.go:UseTransaction.
     //
-    // See https://github.com/kataras/iris/tree/master/_examples/ for more
+    // See https://github.com/kataras/iris/tree/v8/_examples/ for more
     BeginTransaction(pipe func(t *Transaction))
     // SkipTransactions if called then skip the rest of the transactions
     // or all of them if called before the first transaction
@@ -1122,7 +1122,7 @@ type Context interface {
     //
     // app.None(...) and app.GetRoutes().Offline(route)/.Online(route, method)
     //
-    // Example: https://github.com/kataras/iris/tree/master/_examples/routing/route-state
+    // Example: https://github.com/kataras/iris/tree/v8/_examples/routing/route-state
     //
     // User can get the response by simple using rec := ctx.Recorder(); rec.Body()/rec.StatusCode()/rec.Header().
     //

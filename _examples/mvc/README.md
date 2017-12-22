@@ -1,6 +1,6 @@
 # MVC
 
-![](https://github.com/kataras/iris/raw/master/_examples/mvc/web_mvc_diagram.png)
+![](https://github.com/kataras/iris/raw/v8/_examples/mvc/web_mvc_diagram.png)
 
 Iris has **first-class support for the MVC pattern**, you'll not find
 these stuff anywhere else in the Go world.
@@ -45,7 +45,7 @@ useful to call middlewares or when many methods use the same collection of data.
 Optional `EndRequest(ctx)` function to perform any finalization after any method executed.
 
 Inheritance, recursively, see for example our `mvc.SessionController`, it has the `iris.Controller` as an embedded field
-and it adds its logic to its `BeginRequest`, [here](https://github.com/kataras/iris/blob/master/mvc/session_controller.go). 
+and it adds its logic to its `BeginRequest`, [here](https://github.com/kataras/iris/blob/v8/mvc/session_controller.go). 
 
 Read access to the current route  via the `Route` field.
 
@@ -91,7 +91,7 @@ func(c *ExampleController) Get() string |
                                 mvc.Result or (mvc.Result, error)
 ```
 
-where [mvc.Result](https://github.com/kataras/iris/blob/master/mvc/method_result.go) is an interface which contains only that function: `Dispatch(ctx iris.Context)`.
+where [mvc.Result](https://github.com/kataras/iris/blob/v8/mvc/method_result.go) is an interface which contains only that function: `Dispatch(ctx iris.Context)`.
 
 ## Using Iris MVC for code reuse
 
@@ -175,7 +175,7 @@ func (c *HelloWorldController) Any() {} handles All method requests
 */
 ```
 
-> The [_examples/mvc](https://github.com/kataras/iris/tree/master/_examples/mvc) and [mvc/controller_test.go](https://github.com/kataras/iris/blob/master/mvc/controller_test.go) files explain each feature with simple paradigms, they show how you can take advandage of the Iris MVC Binder, Iris MVC Models and many more...
+> The [_examples/mvc](https://github.com/kataras/iris/tree/v8/_examples/mvc) and [mvc/controller_test.go](https://github.com/kataras/iris/blob/v8/mvc/controller_test.go) files explain each feature with simple paradigms, they show how you can take advandage of the Iris MVC Binder, Iris MVC Models and many more...
 
 Every `exported` func prefixed with an HTTP Method(`Get`, `Post`, `Put`, `Delete`...) in a controller is callable as an HTTP endpoint. In the sample above, all funcs writes a string to the response. Note the comments preceding each method.
 
@@ -910,7 +910,7 @@ var BasicAuth = basicauth.New(basicauth.Config{
 </html>
 ```
 
-> Navigate to the [_examples/view](https://github.com/kataras/iris/tree/master/_examples/#view) for more examples
+> Navigate to the [_examples/view](https://github.com/kataras/iris/tree/v8/_examples/#view) for more examples
 like shared layouts, tmpl funcs, reverse routing and more!
 
 #### Main
@@ -967,4 +967,4 @@ func main() {
 }
 ```
 
-More folder structure guidelines can be found at the [_examples/#structuring](https://github.com/kataras/iris/tree/master/_examples/#structuring) section.
+More folder structure guidelines can be found at the [_examples/#structuring](https://github.com/kataras/iris/tree/v8/_examples/#structuring) section.

@@ -35,14 +35,27 @@ Source code and other details for the project are available at GitHub:
 
 Current Version
 
-8.5.8
+8.5.9 Final
 
 Installation
 
 The only requirement is the Go Programming Language, at least version 1.8 but 1.9 is highly recommended.
 
-    $ go get -u github.com/kataras/iris
+Iris takes advantage of the vendor directory feature wisely: https://docs.google.com/document/d/1Bz5-UB7g2uPBdOx-rw5t9MxJwkfpx90cqG9AFL0JAYo.
+You get truly reproducible builds, as this method guards against upstream renames and deletes.
 
+A simple copy-paste and `go get ./...` to resolve two dependencies:
+https://github.com/kataras/golog and the https://github.com/iris-contrib/httpexpect
+will work for ever even for older versions,
+the newest version can be retrieved by `go get` but this file contains documentation for an older version of Iris.
+
+Follow the instructions below:
+
+1. install the Go Programming Language: https://golang.org/dl
+2. clear yours previously `$GOPATH/src/github.com/kataras/iris` folder or create new
+3. download the Iris v8.5.9 (final): https://github.com/kataras/iris/archive/v8.zip
+4. extract the contents of the `iris-v8` folder that's inside the downloaded zip file to your `$GOPATH/src/github.com/kataras/iris`
+5. navigate to your `$GOPATH/src/github.com/kataras/iris` folder if you're not already there and open a terminal/command prompt, execute the command: `go get ./...` and you're ready to GO:)
 
 Example code:
 
@@ -407,7 +420,7 @@ Example Code:
 
 Read more about listening and gracefully shutdown by navigating to:
 
-    https://github.com/kataras/iris/tree/master/_examples/#http-listening
+    https://github.com/kataras/iris/tree/v8/_examples/#http-listening
 
 
 Routing
@@ -700,7 +713,7 @@ Example Code:
     )
 
     // This example is equivalent to the
-    // https://github.com/kataras/iris/blob/master/_examples/hello-world/main.go
+    // https://github.com/kataras/iris/blob/v8/_examples/hello-world/main.go
     //
     // It seems that additional code you
     // have to write doesn't worth it
@@ -822,7 +835,7 @@ useful to call middlewares or when many methods use the same collection of data.
 Optional `EndRequest(ctx)` function to perform any finalization after any method executed.
 
 Inheritance, recursively, see for example our `mvc.SessionController/iris.SessionController`, it has the `mvc.Controller/iris.Controller` as an embedded field
-and it adds its logic to its `BeginRequest`. Source file: https://github.com/kataras/iris/blob/master/mvc/session_controller.go.
+and it adds its logic to its `BeginRequest`. Source file: https://github.com/kataras/iris/blob/v8/mvc/session_controller.go.
 
 Read access to the current route  via the `Route` field.
 
@@ -1026,7 +1039,7 @@ The example below is not intended to be used in production but it's a good showc
 
 Another good example with a typical folder structure,
 that many developers are used to work, can be found at:
-https://github.com/kataras/iris/tree/master/_examples/mvc/overview.
+https://github.com/kataras/iris/tree/v8/_examples/mvc/overview.
 
 
 Using Iris MVC for code reuse
@@ -1039,7 +1052,7 @@ different data because the view is simply handling how the data is being display
 If you're new to back-end web development read about the MVC architectural pattern first,
 a good start is that wikipedia article: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller.
 
-Follow the examples at: https://github.com/kataras/iris/tree/master/_examples/#mvc
+Follow the examples at: https://github.com/kataras/iris/tree/v8/_examples/#mvc
 
 
 Parameterized Path
@@ -1258,7 +1271,7 @@ Static Files
     //
     // Returns the GET *Route.
     //
-    // Example: https://github.com/kataras/iris/tree/master/_examples/file-server/embedding-files-into-app
+    // Example: https://github.com/kataras/iris/tree/v8/_examples/file-server/embedding-files-into-app
     StaticEmbedded(requestPath string, vdir string, assetFn func(name string) ([]byte, error), namesFn func() []string) (*Route, error)
 
     // Favicon serves static favicon
@@ -1321,7 +1334,7 @@ Example code:
         app.Run(iris.Addr(":8080"))
     }
 
-More examples can be found here: https://github.com/kataras/iris/tree/master/_examples/beginner/file-server
+More examples can be found here: https://github.com/kataras/iris/tree/v8/_examples/beginner/file-server
 
 
 Middleware Ecosystem
@@ -1514,7 +1527,7 @@ Example code:
     }
 
 
-A real example can be found here: https://github.com/kataras/iris/tree/master/_examples/view/embedding-templates-into-app.
+A real example can be found here: https://github.com/kataras/iris/tree/v8/_examples/view/embedding-templates-into-app.
 
 Enable auto-reloading of templates on each request. Useful while developers are in dev mode
 as they no neeed to restart their app on every template edit.
@@ -1537,7 +1550,7 @@ access to the engines' variables can be granded by "github.com/kataras/iris" pac
     iris.Handlebars(...) >> >>      view.Handlebars(...)
     iris.Amber(...)      >> >>      view.Amber(...)
 
-Each one of these template engines has different options located here: https://github.com/kataras/iris/tree/master/view .
+Each one of these template engines has different options located here: https://github.com/kataras/iris/tree/v8/view .
 
 
 Sessions
@@ -1726,7 +1739,7 @@ Example Code:
 
 More examples:
 
-    https://github.com/kataras/iris/tree/master/sessions
+    https://github.com/kataras/iris/tree/v8/sessions
 
 
 Websockets
@@ -1845,20 +1858,16 @@ If you enjoy what you just saw and want to learn more, please follow the below l
 
 Examples:
 
-    https://github.com/kataras/iris/tree/master/_examples
+    https://github.com/kataras/iris/tree/v8/_examples
 
 Middleware:
 
-    https://github.com/kataras/iris/tree/master/middleware
-    https://github.com/iris-contrib/middleware
+    https://github.com/kataras/iris/tree/v8/middleware
+    https://github.com/iris-contrib/middleware/tree/v8
 
 Home Page:
 
     https://iris-go.com
-
-Book (in-progress):
-
-    https://docs.iris-go.com
 
 */
 package iris

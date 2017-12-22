@@ -1,20 +1,13 @@
 # FAQ
 
-## How to upgrade
-
-```sh
-go get -u github.com/kataras/iris
-```
-
 ## Learning
 
 More than 50 practical examples, tutorials and articles at:
 
-- https://github.com/kataras/iris/tree/master/_examples
-- https://github.com/iris-contrib/examples
+- https://github.com/kataras/iris/tree/v8/_examples
+- https://github.com/iris-contrib/examples/tree/v8
 - https://iris-go.com/v8/recipe
-- https://docs.iris-go.com (in-progress)
-- https://godoc.org/github.com/kataras/iris
+- https://godoc.org/gopkg.in/kataras/iris.v8
 
 > [Stay tuned](https://github.com/kataras/iris/stargazers), community prepares even more tutorials.
 
@@ -60,13 +53,26 @@ Iris may have reached version 8, but we're not stopping there. We have many feat
 Yes, not only because you will learn Golang in the same time, but there are some positions
 open for Iris-specific developers the time we speak.
 
-- https://glints.id/opportunities/jobs/5553
+Go to our facebook page, like it and receive notifications about new job offers, we already have couple of them stay at the top of the page: https://www.facebook.com/iris.framework
 
+<!--
 ## Can Iris be used in production after Dubai purchase?
 
 Yes, now more than ever.
 
 https://github.com/kataras/iris/issues/711
+
+-------
+
+UPDATE which I could mention by the beginning of the Decemember of 2017:
+
+Nothing keeps for ever, and we should move on to greater things.
+
+As you probably know, I was hired to develop an inside Iris version for a Dubai-based startup company's specific requirements in the same time I was developing the open-source Iris repository with your help this time as well!
+
+As our first deal was to end this agreement via last-time negotiatations by the end of the current year (2017), the
+agreement ended unofficially at 22 Novemember of 2017 (officially some weeks later, paper work), and after a week I came back to Greece as you may understood from the regularly commits and improvements to the public repository that I pushed.
+ -->
 
 ## Do we have a community Chat?
 

@@ -2,7 +2,7 @@
 
 Source code and other details for the project are available at GitHub:
 
-   https://github.com/kataras/iris/tree/master/websocket
+   https://github.com/kataras/iris/tree/v8/websocket
 
 Installation
 

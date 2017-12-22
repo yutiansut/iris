@@ -20,7 +20,7 @@ Yours faithfully, [Gerasimos Maropoulos](https://twitter.com/MakisMaropoulos).
 
 # [![Logo created by @santoshanand](logo_white_35_24.png)](https://iris-go.com) Iris
 
-[![build status](https://img.shields.io/travis/kataras/iris/master.svg?style=flat-square)](https://travis-ci.org/kataras/iris)[![report card](https://img.shields.io/badge/report%20card-a%2B-ff3333.svg?style=flat-square)](http://goreportcard.com/report/kataras/iris)[![github closed issues](https://img.shields.io/github/issues-closed-raw/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/issues?q=is%3Aissue+is%3Aclosed)[![release](https://img.shields.io/github/release/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/releases)[![view examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg?style=flat-square)](https://github.com/kataras/iris/tree/master/_examples)[![chat](https://img.shields.io/badge/community-%20chat-00BCD4.svg?style=flat-square)](https://kataras.rocket.chat/channel/iris)[![CLA assistant](https://cla-assistant.io/readme/badge/kataras/iris?style=flat-square)](https://cla-assistant.io/kataras/iris)
+[![build status](https://img.shields.io/travis/kataras/iris/v8.svg?style=flat-square)](https://travis-ci.org/kataras/iris)[![report card](https://img.shields.io/badge/report%20card-a%2B-ff3333.svg?style=flat-square)](http://goreportcard.com/report/kataras/iris)[![github closed issues](https://img.shields.io/github/issues-closed-raw/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/issues?q=is%3Aissue+is%3Aclosed)[![release](https://img.shields.io/github/release/kataras/iris.svg?style=flat-square)](https://github.com/kataras/iris/releases)[![view examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg?style=flat-square)](https://github.com/kataras/iris/tree/v8/_examples)[![chat](https://img.shields.io/badge/community-%20chat-00BCD4.svg?style=flat-square)](https://kataras.rocket.chat/channel/iris)[![CLA assistant](https://cla-assistant.io/readme/badge/kataras/iris?style=flat-square)](https://cla-assistant.io/kataras/iris)
 
 Iris is a fast, simple and efficient web framework for Go.
 
@@ -60,7 +60,7 @@ If you're coming from [nodejs](https://nodejs.org) world, Iris is the [expressjs
 ## Table Of Content
 
 * [Installation](#installation)
-* [Latest changes](https://github.com/kataras/iris/blob/master/HISTORY.md#th-09-november-2017--v858)
+* [Latest changes](https://github.com/kataras/iris/blob/v8/HISTORY.md#fr-22-decemember-2017--v859)
 * [Getting started](#getting-started)
 * [Learn](_examples/)
     * [MVC (Model View Controller)](_examples/#mvc) **NEW**
@@ -99,11 +99,17 @@ If you're coming from [nodejs](https://nodejs.org) world, Iris is the [expressjs
 
 The only requirement is the [Go Programming Language](https://golang.org/dl/)
 
-```sh
-$ go get -u github.com/kataras/iris
-```
-
 Iris takes advantage of the [vendor directory](https://docs.google.com/document/d/1Bz5-UB7g2uPBdOx-rw5t9MxJwkfpx90cqG9AFL0JAYo) feature. You get truly reproducible builds, as this method guards against upstream renames and deletes.
+
+A simple copy-paste and `go get ./...` to resolve two dependencies: [kataras/golog](https://github.com/kataras/golog) and the [iris-contrib/httpexpect](https://github.com/iris-contrib/httpexpect) will work for ever even for older versions, the newest version can be retrieved by `go get` but this branch contains an older version of Iris.
+
+Follow the instructions below:
+
+1. install the Go Programming Language: https://golang.org/dl
+2. clear yours previously `$GOPATH/src/github.com/kataras/iris` folder or create new
+3. download the Iris v8.5.9 (final): https://github.com/kataras/iris/archive/v8.zip
+4. extract the contents of the `iris-v8` folder that's inside the downloaded zip file to your `$GOPATH/src/github.com/kataras/iris`
+5. navigate to your `$GOPATH/src/github.com/kataras/iris` folder if you're not already there and open a terminal/command prompt, execute the command: `go get ./...` and you're ready to GO:)
 
 ## Getting Started
 
@@ -147,7 +153,7 @@ func main() {
 }
 ```
 
-> Learn more about path parameter's types by clicking [here](https://github.com/kataras/iris/blob/master/_examples/routing/dynamic-path/main.go#L31).
+> Learn more about path parameter's types by clicking [here](https://github.com/kataras/iris/blob/v8/_examples/routing/dynamic-path/main.go#L31).
 
 ```html
 <!-- file: ./views/hello.html -->
@@ -226,7 +232,7 @@ func (c *HelloWorldController) GetWelcomeBy(name string, numTimes int) {
 }
 ```
 
-> The [_examples/mvc](_examples/mvc) and [mvc/controller_test.go](https://github.com/kataras/iris/blob/master/mvc/controller_test.go) files explain each feature with simple paradigms, they show how you can take advandage of the Iris MVC Binder, Iris MVC Models and many more...
+> The [_examples/mvc](_examples/mvc) and [mvc/controller_test.go](https://github.com/kataras/iris/blob/v8/mvc/controller_test.go) files explain each feature with simple paradigms, they show how you can take advandage of the Iris MVC Binder, Iris MVC Models and many more...
 
 Every `exported` func prefixed with an HTTP Method(`Get`, `Post`, `Put`, `Delete`...) in a controller is callable as an HTTP endpoint. In the sample above, all funcs writes a string to the response. Note the comments preceding each method.
 
